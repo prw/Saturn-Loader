@@ -288,6 +288,13 @@ bool ProgAlgSpi::Spi_Identify(bool verbose)
                         SectorErase=1;
                         FlashType=GENERIC;
                         break;
+		    case 0x18: /* W25Q128 */
+			Pages=65536;
+			PageSize=256;
+			BulkErase=200;
+			SectorErase=2;
+			FlashType=GENERIC;
+			break;
                     default:
                         printf("Unknown Winbond W25Q Flash Size (0x%.2x)\n", tdo[3]);
                         return false;
